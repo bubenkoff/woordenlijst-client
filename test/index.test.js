@@ -1315,6 +1315,34 @@ const testCasesLimitedByPart = [
       },
     ],
   },
+  {
+    input: [
+      "snijden",
+      "VRB",
+      ["VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)"],
+      [],
+    ],
+    expected: [
+      {
+        word: 'snijden',
+        forms: [
+          {
+            partOfSpeech: 'VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)',
+            description: 'tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... (me))',
+            form: 'snij',
+            example: 'ik snij (me)'
+          },
+          {
+            partOfSpeech: 'VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)',
+            description: 'tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... (me))',
+            form: 'snijd',
+            example: 'ik snijd (me)'
+          }
+        ],
+        description: 'hoofdwerkwoord (infinitivus).'
+      }
+    ]
+  },
 ];
 
 describe.each(testCasesLimitedByPart)(
