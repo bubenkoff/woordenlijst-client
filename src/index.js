@@ -1,6 +1,9 @@
 import URL from "url-parse";
 import { XMLParser } from "fast-xml-parser";
-import { presets } from "../babel.config.cjs";
+import {
+  getVerbExample as _getVerbExample,
+  getVerbsWithPrepositions as _getVerbsWithPrepositions,
+} from "./wiki";
 
 const findWordURL = "https://woordenlijst.org/MolexServe/lexicon/find_wordform";
 
@@ -77,7 +80,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat ik",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)": {
       description: "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag.",
@@ -101,9 +104,9 @@ const _parseWordForm = function (
           preSuffix: undefined,
         },
       },
-      separable: {  
+      separable: {
         prefix: "dat jij",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,usage=u)": {
       description:
@@ -117,9 +120,9 @@ const _parseWordForm = function (
           preSuffix: undefined,
         },
       },
-      separable: {  
+      separable: {
         prefix: "dat u",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=3)": {
       description: "tegenwoordige tijd (presens), enkelvoud, 3e persoon.",
@@ -134,7 +137,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat hij/zij/het",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=1)": {
       description: "tegenwoordige tijd (presens), meervoud, 1e persoon.",
@@ -149,7 +152,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat wij",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=2)": {
       description: "tegenwoordige tijd (presens), meervoud, 2e persoon.",
@@ -164,7 +167,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat jullie",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=3)": {
       description: "tegenwoordige tijd (presens), meervoud, 3e persoon.",
@@ -179,7 +182,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat zij",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=1)": {
       description: "verleden tijd (imperfectum), enkelvoud, 1e persoon.",
@@ -194,7 +197,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat ik",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=2)": {
       description: "verleden tijd (imperfectum), enkelvoud, 2e persoon.",
@@ -209,7 +212,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat jij",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=3)": {
       description: "verleden tijd (imperfectum), enkelvoud, 3e persoon.",
@@ -224,7 +227,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat hij/zij/het",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=1)": {
       description: "verleden tijd (imperfectum), meervoud, 1e persoon.",
@@ -239,7 +242,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat wij",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=2)": {
       description: "verleden tijd (imperfectum), meervoud, 2e persoon.",
@@ -254,7 +257,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat jullie",
-      }
+      },
     },
     "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=3)": {
       description: "verleden tijd (imperfectum), meervoud, 3e persoon.",
@@ -269,7 +272,7 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat zij",
-      }
+      },
     },
     "VRB(finiteness=part,tense=pres)": {
       description: "tegenwoordig deelwoord (participium praesentis activi).",
@@ -363,7 +366,7 @@ const _parseWordForm = function (
     "VRB(type=mai/aux)": {
       description: "hulpwerkwoord (auxilium).",
       example: "hebben",
-    }
+    },
   };
   let lemmatas = jObj.root.found_lemmata;
   if (!Array.isArray(lemmatas)) {
@@ -438,10 +441,12 @@ const _parseWordForm = function (
           suffix = ` ${part.preSuffix}${suffix}`;
         }
       }
-      const helpSuffix = `${part.useHelpVerb ? `${helpVerb} ` : ""}`
+      const helpSuffix = `${part.useHelpVerb ? `${helpVerb} ` : ""}`;
       const descriptionSuffix =
         part.prefix || suffix || helpSuffix
-          ? ` (${helpSuffix}${`${part.prefix || ""} ...${suffix || ""}`.trim()})`
+          ? ` (${helpSuffix}${`${part.prefix || ""} ...${
+              suffix || ""
+            }`.trim()})`
           : "";
       return {
         partOfSpeech: item.part_of_speech,
@@ -468,3 +473,6 @@ const _parseWordForm = function (
 
 // export parseWordForm
 export const parseWordForm = _parseWordForm;
+
+export const getVerbExample = _getVerbExample;
+export const getVerbsWithPrepositions = _getVerbsWithPrepositions;

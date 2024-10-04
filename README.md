@@ -31,6 +31,43 @@ const word = fetchWord();
 // Output format can be seen in the ./test/index.test.js file
 ```
 
+as Woordenlijst API doesn't provide information about the fixed verb prepositions, there's also a function to get the fixed verb prepositions from wikitionary:
+
+```javascript
+import { getFixedVerbPrepositions } from 'woordenlijst-client';
+
+async function fetchVerbsWithPrepositions() {
+  try {
+    const fixedVerbPrepositions = await getVerbsWithPrepositions();
+    console.log(fixedVerbPrepositions);
+  } catch (error) {
+    console.error('Error fetching fixed verb prepositions:', error);
+  }
+}
+
+const fixedVerbPrepositions = fetchVerbsWithPrepositions();
+// Output format can be seen in the ./test/wiki.getVerbsWithPrepositions.test.js file
+```
+
+There is another function to get example of the usage of the verbs with the fixed prepositions from wikitionary:
+
+```javascript
+
+import { getVerbExample } from 'woordenlijst-client';
+
+async function fetchVerbExample() {
+  try {
+    const verbExample = await getVerbExample('vervallen', '', 'op', 'vervallen op');
+    console.log(verbExample);
+  } catch (error) {
+    console.error('Error fetching verb example:', error);
+  }
+}
+
+const verbExample = fetchVerbExample();
+// Output format can be seen in the ./test/wiki.getVerbExample.test.js file
+```
+
 ## Running Tests
 To run the tests, use the following command:
 

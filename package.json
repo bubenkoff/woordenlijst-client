@@ -23,6 +23,7 @@
   "description": "https://woordenlijst.org API client",
   "dependencies": {
     "fast-xml-parser": "^4.5.0",
+    "jsdom": "^25.0.1",
     "url-parse": "^1.5.10"
   },
   "devDependencies": {
