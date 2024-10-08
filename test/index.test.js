@@ -837,82 +837,101 @@ const testCases = [
     ],
   },
   {
-    input: ["mens", "NOU-C"],
-    expected: [
-      {
-        word: "mens",
-        forms: [
-          {
-            partOfSpeech: "NOU-C(number=sg)",
-            description: "zelfstandig naamwoord (substantief), enkelvoud.",
-            form: "mens",
-            example: "mens",
-          },
-        ],
-        description:
-          "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
-      },
-      {
-        word: "mens",
-        forms: [
-          {
-            partOfSpeech: "NOU-C(number=sg)",
-            description: "zelfstandig naamwoord (substantief), enkelvoud.",
-            form: "mens",
-            example: "mens",
-          },
-          {
-            partOfSpeech: "NOU-C(number=pl)",
-            description: "zelfstandig naamwoord (substantief), meervoud.",
-            form: "mensen",
-            example: "mensen",
-          },
-        ],
-        description:
-          "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
-      },
-    ],
-  },
-  {
     input: ["bos", "NOU-C"],
     expected: [
       {
         word: "bos",
         forms: [
           {
-            partOfSpeech: "NOU-C(number=sg)",
-            description: "zelfstandig naamwoord (substantief), enkelvoud.",
+            partOfSpeech: "NOU-C(gender=n,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
             form: "bos",
             example: "bos",
+            gender: "onzijdig",
+            articles: ["het"],
           },
           {
-            partOfSpeech: "NOU-C(number=pl)",
-            description: "zelfstandig naamwoord (substantief), meervoud.",
+            partOfSpeech: "NOU-C(gender=n,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, onzijdig.",
             form: "bossen",
             example: "bossen",
+            gender: "onzijdig",
+            articles: ["de"],
           },
         ],
         description:
           "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+        diminutiveForms: [
+          {
+            partOfSpeech: "NOU-C(gender=n,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+            form: "bosje",
+            example: "bosje",
+            gender: "onzijdig",
+            articles: ["het"],
+          },
+          {
+            partOfSpeech: "NOU-C(gender=n,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, onzijdig.",
+            form: "bosjes",
+            example: "bosjes",
+            gender: "onzijdig",
+            articles: ["de"],
+          },
+        ],
+        gender: "onzijdig",
+        articles: ["het"],
       },
       {
         word: "bos",
         forms: [
           {
-            partOfSpeech: "NOU-C(number=sg)",
-            description: "zelfstandig naamwoord (substantief), enkelvoud.",
+            partOfSpeech: "NOU-C(gender=m,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
             form: "bos",
             example: "bos",
+            gender: "mannelijk",
+            articles: ["de"],
           },
           {
-            partOfSpeech: "NOU-C(number=pl)",
-            description: "zelfstandig naamwoord (substantief), meervoud.",
+            partOfSpeech: "NOU-C(gender=m,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
             form: "bossen",
             example: "bossen",
+            gender: "mannelijk",
+            articles: ["de"],
           },
         ],
         description:
           "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+        diminutiveForms: [
+          {
+            partOfSpeech: "NOU-C(gender=m,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+            form: "bosje",
+            example: "bosje",
+            gender: "mannelijk",
+            articles: ["het"],
+          },
+          {
+            partOfSpeech: "NOU-C(gender=m,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
+            form: "bosjes",
+            example: "bosjes",
+            gender: "mannelijk",
+            articles: ["de"],
+          },
+        ],
+        gender: "mannelijk",
+        articles: ["de"],
       },
     ],
   },
@@ -1324,24 +1343,26 @@ const testCasesLimitedByPart = [
     ],
     expected: [
       {
-        word: 'snijden',
+        word: "snijden",
         forms: [
           {
-            partOfSpeech: 'VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)',
-            description: 'tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... (me))',
-            form: 'snij',
-            example: 'ik snij (me)'
+            partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)",
+            description:
+              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... (me))",
+            form: "snij",
+            example: "ik snij (me)",
           },
           {
-            partOfSpeech: 'VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)',
-            description: 'tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... (me))',
-            form: 'snijd',
-            example: 'ik snijd (me)'
-          }
+            partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)",
+            description:
+              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... (me))",
+            form: "snijd",
+            example: "ik snijd (me)",
+          },
         ],
-        description: 'hoofdwerkwoord (infinitivus).'
-      }
-    ]
+        description: "hoofdwerkwoord (infinitivus).",
+      },
+    ],
   },
   {
     input: [
@@ -1381,6 +1402,159 @@ describe.each(testCasesLimitedByPart)(
 );
 
 describe.each(testCases)("findWordForm", ({ input, expected }) => {
+  test(`should return ${expected} for ${input}`, async () => {
+    const result = await findWordForm.apply(null, input);
+    console.log(result);
+    expect(result).toEqual(expected);
+  });
+});
+
+const testCasesNouns = [
+  {
+    input: ["mens", "NOU-C"],
+    expected: [
+      {
+        word: "mens",
+        forms: [
+          {
+            partOfSpeech: "NOU-C(gender=n,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+            form: "mens",
+            example: "mens",
+            gender: "onzijdig",
+            articles: ["het"],
+          },
+        ],
+        description:
+          "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+        diminutiveForms: [
+          {
+            partOfSpeech: "NOU-C(gender=n,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+            form: "mensje",
+            example: "mensje",
+            gender: "onzijdig",
+            articles: ["het"],
+          },
+          {
+            partOfSpeech: "NOU-C(gender=n,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, onzijdig.",
+            form: "mensjes",
+            example: "mensjes",
+            gender: "onzijdig",
+            articles: ["de"],
+          },
+        ],
+        gender: "onzijdig",
+        articles: ["het"],
+      },
+      {
+        word: "mens",
+        forms: [
+          {
+            partOfSpeech: "NOU-C(gender=m,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+            form: "mens",
+            example: "mens",
+            gender: "mannelijk",
+            articles: ["de"],
+          },
+          {
+            partOfSpeech: "NOU-C(gender=m,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
+            form: "mensen",
+            example: "mensen",
+            gender: "mannelijk",
+            articles: ["de"],
+          },
+        ],
+        description:
+          "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+        diminutiveForms: [
+          {
+            partOfSpeech: "NOU-C(gender=m,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+            form: "mensje",
+            example: "mensje",
+            gender: "mannelijk",
+            articles: ["het"],
+          },
+          {
+            partOfSpeech: "NOU-C(gender=m,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
+            form: "mensjes",
+            example: "mensjes",
+            gender: "mannelijk",
+            articles: ["de"],
+          },
+        ],
+        gender: "mannelijk",
+        articles: ["de"],
+      },
+    ],
+  },
+  {
+    input: ["rooster", "NOU-C"],
+    expected: [
+      {
+        word: "rooster",
+        forms: [
+          {
+            partOfSpeech: "NOU-C(gender=m/n,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/onzijdig.",
+            form: "rooster",
+            example: "rooster",
+            gender: "mannelijk/onzijdig",
+            articles: ["het", "de"],
+          },
+          {
+            partOfSpeech: "NOU-C(gender=m/n,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, mannelijk/onzijdig.",
+            form: "roosters",
+            example: "roosters",
+            gender: "mannelijk/onzijdig",
+            articles: ["de"],
+          },
+        ],
+        description:
+          "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/onzijdig.",
+        diminutiveForms: [
+          {
+            partOfSpeech: "NOU-C(gender=m/n,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/onzijdig.",
+            form: "roostertje",
+            example: "roostertje",
+            gender: "mannelijk/onzijdig",
+            articles: ["het"],
+          },
+          {
+            partOfSpeech: "NOU-C(gender=m/n,number=pl)",
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, mannelijk/onzijdig.",
+            form: "roostertjes",
+            example: "roostertjes",
+            gender: "mannelijk/onzijdig",
+            articles: ["de"],
+          },
+        ],
+        gender: "mannelijk/onzijdig",
+        articles: ["het", "de"],
+      },
+    ],
+  },
+];
+
+describe.each(testCasesNouns)("findWordForm nouns", ({ input, expected }) => {
   test(`should return ${expected} for ${input}`, async () => {
     const result = await findWordForm.apply(null, input);
     console.log(result);
