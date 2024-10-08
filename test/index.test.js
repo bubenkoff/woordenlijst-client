@@ -333,7 +333,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... (me) ...)",
             form: "meld (me) aan",
             example: "ik meld (me) aan",
           },
@@ -348,7 +348,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag. (...?)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag. (... jij (je) ...?)",
             form: "meld jij (je) aan",
             example: "meld jij (je) aan?",
           },
@@ -356,7 +356,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=as)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend. (jij ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend. (jij ... (je) ...)",
             form: "meldt (je) aan",
             example: "jij meldt (je) aan",
           },
@@ -372,7 +372,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,usage=u)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u. (u ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u. (u ... (zich) ...)",
             form: "meldt (zich) aan",
             example: "u meldt (zich) aan",
           },
@@ -387,7 +387,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=3)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 3e persoon. (hij/zij/het ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 3e persoon. (hij/zij/het ... (zich) ...)",
             form: "meldt (zich) aan",
             example: "hij/zij/het meldt (zich) aan",
           },
@@ -401,7 +401,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=1)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 1e persoon. (wij ...)",
+              "tegenwoordige tijd (presens), meervoud, 1e persoon. (wij ... (ons) ...)",
             form: "melden (ons) aan",
             example: "wij melden (ons) aan",
           },
@@ -415,7 +415,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=2)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 2e persoon. (jullie ...)",
+              "tegenwoordige tijd (presens), meervoud, 2e persoon. (jullie ... (je) ...)",
             form: "melden (je) aan",
             example: "jullie melden (je) aan",
           },
@@ -429,7 +429,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=3)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 3e persoon. (zij ...)",
+              "tegenwoordige tijd (presens), meervoud, 3e persoon. (zij ... (zich) ...)",
             form: "melden (zich) aan",
             example: "zij melden (zich) aan",
           },
@@ -443,7 +443,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=1)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 1e persoon. (ik ...)",
+              "verleden tijd (imperfectum), enkelvoud, 1e persoon. (ik ... (me) ...)",
             form: "meldde (me) aan",
             example: "ik meldde (me) aan",
           },
@@ -457,7 +457,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=2)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 2e persoon. (jij ...)",
+              "verleden tijd (imperfectum), enkelvoud, 2e persoon. (jij ... (je) ...)",
             form: "meldde (je) aan",
             example: "jij meldde (je) aan",
           },
@@ -471,7 +471,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=3)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 3e persoon. (hij/zij/het ...)",
+              "verleden tijd (imperfectum), enkelvoud, 3e persoon. (hij/zij/het ... (zich) ...)",
             form: "meldde (zich) aan",
             example: "hij/zij/het meldde (zich) aan",
           },
@@ -485,7 +485,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=1)",
             description:
-              "verleden tijd (imperfectum), meervoud, 1e persoon. (wij ...)",
+              "verleden tijd (imperfectum), meervoud, 1e persoon. (wij ... (ons) ...)",
             form: "meldden (ons) aan",
             example: "wij meldden (ons) aan",
           },
@@ -499,7 +499,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=2)",
             description:
-              "verleden tijd (imperfectum), meervoud, 2e persoon. (jullie ...)",
+              "verleden tijd (imperfectum), meervoud, 2e persoon. (jullie ... (je) ...)",
             form: "meldden (je) aan",
             example: "jullie meldden (je) aan",
           },
@@ -513,7 +513,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=3)",
             description:
-              "verleden tijd (imperfectum), meervoud, 3e persoon. (zij ...)",
+              "verleden tijd (imperfectum), meervoud, 3e persoon. (zij ... (zich) ...)",
             form: "meldden (zich) aan",
             example: "zij meldden (zich) aan",
           },
@@ -548,14 +548,14 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief). (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief). (... (je) ...!)",
             form: "meld (je) aan",
             example: "meld (je) aan!",
           },
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,usage=u,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (... u (zich) ...!)",
             form: "meldt u (zich) aan",
             example: "meldt u (zich) aan!",
           },
@@ -592,7 +592,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... ...)",
             form: "schrijf op",
             example: "ik schrijf op",
           },
@@ -607,7 +607,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag. (...?)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag. (... jij ...?)",
             form: "schrijf jij op",
             example: "schrijf jij op?",
           },
@@ -615,7 +615,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=as)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend. (jij ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend. (jij ... ...)",
             form: "schrijft op",
             example: "jij schrijft op",
           },
@@ -631,7 +631,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,usage=u)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u. (u ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u. (u ... ...)",
             form: "schrijft op",
             example: "u schrijft op",
           },
@@ -646,7 +646,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=3)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 3e persoon. (hij/zij/het ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 3e persoon. (hij/zij/het ... ...)",
             form: "schrijft op",
             example: "hij/zij/het schrijft op",
           },
@@ -660,7 +660,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=1)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 1e persoon. (wij ...)",
+              "tegenwoordige tijd (presens), meervoud, 1e persoon. (wij ... ...)",
             form: "schrijven op",
             example: "wij schrijven op",
           },
@@ -674,7 +674,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=2)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 2e persoon. (jullie ...)",
+              "tegenwoordige tijd (presens), meervoud, 2e persoon. (jullie ... ...)",
             form: "schrijven op",
             example: "jullie schrijven op",
           },
@@ -688,7 +688,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=3)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 3e persoon. (zij ...)",
+              "tegenwoordige tijd (presens), meervoud, 3e persoon. (zij ... ...)",
             form: "schrijven op",
             example: "zij schrijven op",
           },
@@ -702,7 +702,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=1)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 1e persoon. (ik ...)",
+              "verleden tijd (imperfectum), enkelvoud, 1e persoon. (ik ... ...)",
             form: "schreef op",
             example: "ik schreef op",
           },
@@ -716,7 +716,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=2)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 2e persoon. (jij ...)",
+              "verleden tijd (imperfectum), enkelvoud, 2e persoon. (jij ... ...)",
             form: "schreef op",
             example: "jij schreef op",
           },
@@ -730,7 +730,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=3)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 3e persoon. (hij/zij/het ...)",
+              "verleden tijd (imperfectum), enkelvoud, 3e persoon. (hij/zij/het ... ...)",
             form: "schreef op",
             example: "hij/zij/het schreef op",
           },
@@ -744,7 +744,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=1)",
             description:
-              "verleden tijd (imperfectum), meervoud, 1e persoon. (wij ...)",
+              "verleden tijd (imperfectum), meervoud, 1e persoon. (wij ... ...)",
             form: "schreven op",
             example: "wij schreven op",
           },
@@ -758,7 +758,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=2)",
             description:
-              "verleden tijd (imperfectum), meervoud, 2e persoon. (jullie ...)",
+              "verleden tijd (imperfectum), meervoud, 2e persoon. (jullie ... ...)",
             form: "schreven op",
             example: "jullie schreven op",
           },
@@ -772,7 +772,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=3)",
             description:
-              "verleden tijd (imperfectum), meervoud, 3e persoon. (zij ...)",
+              "verleden tijd (imperfectum), meervoud, 3e persoon. (zij ... ...)",
             form: "schreven op",
             example: "zij schreven op",
           },
@@ -807,14 +807,14 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief). (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief). (... ...!)",
             form: "schrijf op",
             example: "schrijf op!",
           },
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,usage=u,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (... u ...!)",
             form: "schrijft u op",
             example: "schrijft u op!",
           },
@@ -931,7 +931,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... ...)",
             form: "kom aan",
             example: "ik kom aan",
           },
@@ -946,7 +946,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag. (...?)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag. (... jij ...?)",
             form: "kom jij aan",
             example: "kom jij aan?",
           },
@@ -954,7 +954,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=as)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend. (jij ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend. (jij ... ...)",
             form: "komt aan",
             example: "jij komt aan",
           },
@@ -970,7 +970,7 @@ const testCases = [
             partOfSpeech:
               "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,usage=u)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u. (u ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u. (u ... ...)",
             form: "komt aan",
             example: "u komt aan",
           },
@@ -985,7 +985,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=3)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 3e persoon. (hij/zij/het ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 3e persoon. (hij/zij/het ... ...)",
             form: "komt aan",
             example: "hij/zij/het komt aan",
           },
@@ -999,7 +999,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=1)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 1e persoon. (wij ...)",
+              "tegenwoordige tijd (presens), meervoud, 1e persoon. (wij ... ...)",
             form: "komen aan",
             example: "wij komen aan",
           },
@@ -1013,7 +1013,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=2)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 2e persoon. (jullie ...)",
+              "tegenwoordige tijd (presens), meervoud, 2e persoon. (jullie ... ...)",
             form: "komen aan",
             example: "jullie komen aan",
           },
@@ -1027,7 +1027,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=3)",
             description:
-              "tegenwoordige tijd (presens), meervoud, 3e persoon. (zij ...)",
+              "tegenwoordige tijd (presens), meervoud, 3e persoon. (zij ... ...)",
             form: "komen aan",
             example: "zij komen aan",
           },
@@ -1041,7 +1041,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=1)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 1e persoon. (ik ...)",
+              "verleden tijd (imperfectum), enkelvoud, 1e persoon. (ik ... ...)",
             form: "kwam aan",
             example: "ik kwam aan",
           },
@@ -1055,7 +1055,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=2)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 2e persoon. (jij ...)",
+              "verleden tijd (imperfectum), enkelvoud, 2e persoon. (jij ... ...)",
             form: "kwam aan",
             example: "jij kwam aan",
           },
@@ -1069,7 +1069,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=3)",
             description:
-              "verleden tijd (imperfectum), enkelvoud, 3e persoon. (hij/zij/het ...)",
+              "verleden tijd (imperfectum), enkelvoud, 3e persoon. (hij/zij/het ... ...)",
             form: "kwam aan",
             example: "hij/zij/het kwam aan",
           },
@@ -1083,7 +1083,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=1)",
             description:
-              "verleden tijd (imperfectum), meervoud, 1e persoon. (wij ...)",
+              "verleden tijd (imperfectum), meervoud, 1e persoon. (wij ... ...)",
             form: "kwamen aan",
             example: "wij kwamen aan",
           },
@@ -1097,7 +1097,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=2)",
             description:
-              "verleden tijd (imperfectum), meervoud, 2e persoon. (jullie ...)",
+              "verleden tijd (imperfectum), meervoud, 2e persoon. (jullie ... ...)",
             form: "kwamen aan",
             example: "jullie kwamen aan",
           },
@@ -1111,7 +1111,7 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=3)",
             description:
-              "verleden tijd (imperfectum), meervoud, 3e persoon. (zij ...)",
+              "verleden tijd (imperfectum), meervoud, 3e persoon. (zij ... ...)",
             form: "kwamen aan",
             example: "zij kwamen aan",
           },
@@ -1146,14 +1146,14 @@ const testCases = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief). (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief). (... ...!)",
             form: "kom aan",
             example: "kom aan!",
           },
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,usage=u,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (... u ...!)",
             form: "komt u aan",
             example: "komt u aan!",
           },
@@ -1208,14 +1208,14 @@ const testCasesLimitedByPart = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief). (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief). (... ...!)",
             form: "zoek op",
             example: "zoek op!",
           },
           {
             partOfSpeech: "VRB(finiteness=fin,mood=imp,usage=u,sep=yes)",
             description:
-              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (...!)",
+              "scheidbaar werkwoord, gebiedende wijs (imperatief) u. (... u ...!)",
             form: "zoekt u op",
             example: "zoekt u op!",
           },
@@ -1276,7 +1276,7 @@ const testCasesLimitedByPart = [
           {
             partOfSpeech: "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)",
             description:
-              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ...)",
+              "tegenwoordige tijd (presens), enkelvoud, 1e persoon. (ik ... ...)",
             form: "kom thuis",
             example: "ik kom thuis",
           },
@@ -1342,6 +1342,30 @@ const testCasesLimitedByPart = [
         description: 'hoofdwerkwoord (infinitivus).'
       }
     ]
+  },
+  {
+    input: [
+      "aanmelden",
+      "VRB",
+      ["VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)"],
+      [],
+    ],
+    expected: [
+      {
+        word: "aanmelden",
+        forms: [
+          {
+            partOfSpeech:
+              "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)",
+            description:
+              "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag. (... jij (je) ...?)",
+            form: "meld jij (je) aan",
+            example: "meld jij (je) aan?",
+          },
+        ],
+        description: "scheidbaar werkwoord (tmesis).",
+      },
+    ],
   },
 ];
 

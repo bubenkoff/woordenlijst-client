@@ -416,9 +416,11 @@ const _parseWordForm = function (
     //   }, {});
     //   console.log(grouped);
     const forms = paradigms.map((item) => {
-      console.log(item);
+      // console.log(item);
       const part = partOfSpeechDefinitions[item.part_of_speech];
       const wordParts = item.wordform.split(" ");
+      const descriptionWordParts = wordParts.map(() => "...");
+      item.descriptionWordForm = descriptionWordParts.join(" ").trim();
       if (part.reflexive && isReflexive) {
         Object.assign(part, part.reflexive);
         if (part.reflexive.separable && isSeparable && wordParts.length === 1) {
@@ -436,7 +438,9 @@ const _parseWordForm = function (
         if (item.part_of_speech.includes("sep=yes") || isSeparable) {
           // separable verb
           wordParts.splice(1, 0, part.preSuffix);
+          descriptionWordParts.splice(1, 0, part.preSuffix);
           item.wordform = wordParts.join(" ").trim();
+          item.descriptionWordForm = descriptionWordParts.join(" ").trim();
         } else {
           suffix = ` ${part.preSuffix}${suffix}`;
         }
@@ -444,9 +448,9 @@ const _parseWordForm = function (
       const helpSuffix = `${part.useHelpVerb ? `${helpVerb} ` : ""}`;
       const descriptionSuffix =
         part.prefix || suffix || helpSuffix
-          ? ` (${helpSuffix}${`${part.prefix || ""} ...${
-              suffix || ""
-            }`.trim()})`
+          ? ` (${`${part.useHelpVerb ? `${helpVerb} ` : ""}${
+          part.prefix ? part.prefix + " " : ""
+        }${item.descriptionWordForm}${suffix}`.trim()})`
           : "";
       return {
         partOfSpeech: item.part_of_speech,
