@@ -62,6 +62,6 @@ describe.each(testCases)("getVerbExample", ({ input, expected }) => {
   test(`should return ${expected} for ${input}`, async () => {
     const result = await getVerbExample.apply(null, input);
     console.log(input, result);
-    expect(result).toMatchObject(expected);
+    expect(result).toEqual(expected);
   });
 });

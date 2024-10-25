@@ -31,7 +31,7 @@ const word = fetchWord();
 // Output format can be seen in the ./test/index.test.js file
 ```
 
-as Woordenlijst API doesn't provide information about the fixed verb prepositions, there's also a function to get the fixed verb prepositions from wikitionary:
+As Woordenlijst API doesn't provide information about the fixed verb prepositions, there's also a function to get the fixed verb prepositions from wikitionary:
 
 ```javascript
 import { getFixedVerbPrepositions } from 'woordenlijst-client';
@@ -66,6 +66,24 @@ async function fetchVerbExample() {
 
 const verbExample = fetchVerbExample();
 // Output format can be seen in the ./test/wiki.getVerbExample.test.js file
+```
+
+As Woordenlijst API doesn't provide word definitions, there's also a function to get the word definitions from van Dale:
+
+```javascript
+import { getWordDefinitions } from 'woordenlijst-client';
+
+async function fetchWordDefinitions() {
+  try {
+    const wordDefinitions = await getWordDefinitions();
+    console.log(wordDefinitions);
+  } catch (error) {
+    console.error('Error fetching word definitions:', error);
+  }
+}
+
+const wordDefinitions = fetchWordDefinitions();
+// Output format can be seen in the ./test/vanDale.getWord.test.js file
 ```
 
 ## Running Tests
