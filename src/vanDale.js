@@ -38,10 +38,10 @@ const _parseWord = function (word, doc) {
             if (title.match(/^\d+$/)) {
               return {
                 definition: parts[0],
-                examples: parts.slice(1).join(":").trim().split(";").map((item) => item.trim()),
+                examples: parts.slice(1).join(":").trim().split(";").map((item) => item.trim()).filter(Boolean),
               };
             } else {
-              examples = definition.split(";").map((item) => item.trim());
+              examples = definition.split(";").map((item) => item.trim()).filter(Boolean);
             }
           }
         ).filter(Boolean);
