@@ -22,8 +22,11 @@
   "homepage": "https://github.com/bubenkoff/woordenlijst-client#readme",
   "description": "https://woordenlijst.org API client",
   "dependencies": {
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
     "fast-xml-parser": "^4.5.0",
     "jsdom": "^25.0.1",
+    "p-limit": "^6.1.0",
     "url-parse": "^1.5.10"
   },
   "devDependencies": {
