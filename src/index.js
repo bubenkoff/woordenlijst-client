@@ -98,6 +98,16 @@ const _parseWordForm = function (
       example: "en",
       simpleDescription: "Voegwoord",
     },
+    PD: {
+      description: "onbepaald voornaamwoord (pronoun indefinite).",
+      example: "niemand",
+      simpleDescription: "Onbepaald voornaamwoord",
+    },
+    ADP: {
+      description: "voorzetsel (prepositie).",
+      example: "in",
+      simpleDescription: "Voorzetsel",
+    },
     "AA(degree=pos)": {
       description: "bijvoeglijk naamwoord (adjectivum), positief.",
       example: "mooi",
@@ -158,10 +168,6 @@ const _parseWordForm = function (
       example: "snel",
     },
     "ADP(type=pre)": {
-      description: "voorzetsel (prepositie).",
-      example: "in",
-    },
-    ADP: {
       description: "voorzetsel (prepositie).",
       example: "in",
     },
@@ -369,10 +375,6 @@ const _parseWordForm = function (
       description:
         "wederkerend voornaamwoord (pronoun reflexive), 1e persoon, meervoud.",
       example: "ons",
-    },
-    PD: {
-      description: "onbepaald voornaamwoord (pronoun indefinite).",
-      example: "niemand",
     },
     "PD(type=pers,person=1,number=pl)": {
       description:

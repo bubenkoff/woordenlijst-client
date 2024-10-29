@@ -17,8 +17,9 @@ const limit = pLimit(5);
 async function getPartOfSpeech(word) {
   // Simulate an async operation (e.g., API call)
   if (!word) return "";
-  const wordForm = await findWordForm(word);
-  return wordForm ? wordForm[0]?.partOfSpeechType : "";
+  const wordForms = await findWordForm(word);
+  const wordForm = wordForms.find((wordForm) => wordForm.partOfSpeechType !== "Werkwoord" || wordForm.word === word);
+  return wordForm ? wordForm.partOfSpeechType : "";
 }
 
 // Get input file path from command-line arguments
@@ -49,6 +50,7 @@ fs.createReadStream(inputFilePath)
     await Promise.all(
       results.map((result) =>
         limit(async () => {
+          // console.log(`Processing word: ${result["Nederlands woord"]}, "${result["Woordsoort"]}"`);
           if (!result["Woordsoort"]) {
             const partOfSpeech = await getPartOfSpeech(
               result["Nederlands woord"]

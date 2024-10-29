@@ -5,6 +5,79 @@ import { findWordForm } from "../src/index.js";
 
 const testCases = [
   {
+    input: ["allerlei"],
+    expected: [
+      {
+        word: "allerlei",
+        forms: [
+          {
+            partOfSpeech: "PD(case=nom,number=sg)",
+            description:
+              "onbepaald voornaamwoord (pronoun indefinite), nominatief, enkelvoud.",
+            form: "allerlei",
+            example: "allerlei",
+          },
+          {
+            partOfSpeech: "PD(case=dat,number=sg)",
+            description:
+              "onbepaald voornaamwoord (pronoun indefinite), datief, enkelvoud.",
+            form: "allerlei",
+            example: "allerlei",
+          },
+          {
+            partOfSpeech: "PD(case=acc,number=sg)",
+            description:
+              "onbepaald voornaamwoord (pronoun indefinite), accusatief, enkelvoud.",
+            form: "allerlei",
+            example: "allerlei",
+          },
+          {
+            partOfSpeech: "PD(case=nom,number=pl)",
+            description:
+              "onbepaald voornaamwoord (pronoun indefinite), nominatief, meervoud.",
+            form: "allerlei",
+            example: "allerlei",
+          },
+          {
+            partOfSpeech: "PD(case=dat,number=pl)",
+            description:
+              "onbepaald voornaamwoord (pronoun indefinite), datief, meervoud.",
+            form: "allerlei",
+            example: "allerlei",
+          },
+          {
+            partOfSpeech: "PD(case=acc,number=pl)",
+            description:
+              "onbepaald voornaamwoord (pronoun indefinite), accusatief, meervoud.",
+            form: "allerlei",
+            example: "allerlei",
+          },
+        ],
+        description: "onbepaald voornaamwoord (pronoun indefinite).",
+        partOfSpeechType: "Onbepaald voornaamwoord",
+      },
+      {
+        word: "allerlei",
+        forms: [
+          {
+            partOfSpeech: "NOU-C(gender=n,number=sg)",
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+            form: "allerlei",
+            example: "allerlei",
+            gender: "onzijdig",
+            articles: ["het"],
+          },
+        ],
+        description:
+          "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+        partOfSpeechType: "Zelfstandig naamwoord",
+        gender: "onzijdig",
+        articles: ["het"],
+      },
+    ],
+  },
+  {
     input: ["kijken", "VRB"],
     expected: [
       {
