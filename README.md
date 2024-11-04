@@ -16,11 +16,11 @@ yarn install
 Here is an example of how to use the Woordenlijst Client:
 
 ```javascript
-import { getWord } from 'woordenlijst-client';
+import { findWordForm } from 'woordenlijst-client';
 
 async function fetchWord() {
   try {
-    const wordData = await getWord('werken');
+    const wordData = await findWordForm('werken');
     console.log(wordData);
   } catch (error) {
     console.error('Error fetching word data:', error);
@@ -34,7 +34,7 @@ const word = fetchWord();
 As Woordenlijst API doesn't provide information about the fixed verb prepositions, there's also a function to get the fixed verb prepositions from wikitionary:
 
 ```javascript
-import { getFixedVerbPrepositions } from 'woordenlijst-client';
+import { getVerbsWithPrepositions } from 'woordenlijst-client';
 
 async function fetchVerbsWithPrepositions() {
   try {
@@ -85,6 +85,25 @@ async function fetchWordDefinitions() {
 const wordDefinitions = fetchWordDefinitions();
 // Output format can be seen in the ./test/vanDale.getWord.test.js file
 ```
+
+As Woordenlijst API doesn't provide word synonyms, there's also a function to get the word synonyms from van Dale:
+
+```javascript
+import { getWordSynonyms } from 'woordenlijst-client';
+
+async function fetchWordSynonyms() {
+  try {
+    const wordSynonyms = await getWordSynonyms();
+    console.log(wordSynonyms);
+  } catch (error) {
+    console.error('Error fetching word synonyms:', error);
+  }
+}
+
+const wordDefinitions = fetchWordSynonyms();
+// Output format can be seen in the ./test/vanDale.getSynonym.test.js file
+```
+
 
 ## Running Tests
 To run the tests, use the following command:

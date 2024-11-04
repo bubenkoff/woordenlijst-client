@@ -4,7 +4,7 @@ import {
   getVerbExample as _getVerbExample,
   getVerbsWithPrepositions as _getVerbsWithPrepositions,
 } from "./wiki.js";
-import { getWord as _getWordDefinitions } from "./vanDale.js";
+import { getWord as _getWordDefinitions, getSynonym as _getWordSynonyms } from "./vanDale.js";
 
 const findWordURL = "https://woordenlijst.org/MolexServe/lexicon/find_wordform";
 
@@ -1102,3 +1102,4 @@ export const parseWordForm = _parseWordForm;
 export const getVerbExample = _getVerbExample;
 export const getVerbsWithPrepositions = _getVerbsWithPrepositions;
 export const getWordDefinitions = _getWordDefinitions;
+export const getWordSynonyms = _getWordSynonyms;
