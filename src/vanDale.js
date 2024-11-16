@@ -6,7 +6,7 @@ const synonymURL = "https://www.woordenboek.nl/synoniem";
 
 const _parseWord = function (word, doc) {
   const searchResults = doc.querySelectorAll(
-    ".main-content .block-content .snippets .f0j"
+    ".main-content .snippets .f0j"
   );
   const searchResultsArray = Array.from(searchResults);
   const searchResultsItems = searchResultsArray
