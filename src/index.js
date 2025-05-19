@@ -914,6 +914,9 @@ const _parseWordForm = function (
       example: "hebben",
     },
   };
+  console.log(
+    `Parsing lemmata for word ${word} with ${JSON.stringify(jObj)}`
+  );
   let lemmatas = jObj.root.found_lemmata;
   if (!Array.isArray(lemmatas)) {
     lemmatas = [lemmatas].filter(Boolean);

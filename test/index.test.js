@@ -914,7 +914,7 @@ const testCases = [
     ],
   },
   {
-    input: ["bos", "NOU-C"],
+    input: ["bos", "NOU-C(number=sg)"],
     expected: [
       {
         word: "bos",
@@ -1497,7 +1497,7 @@ describe.each(testCases)("findWordForm", ({ input, expected }) => {
 
 const testCasesNouns = [
   {
-    input: ["mens", "NOU-C"],
+    input: ["mens", "NOU-C(number=sg)"],
     expected: [
       {
         word: "mens",
@@ -1589,7 +1589,7 @@ const testCasesNouns = [
     ],
   },
   {
-    input: ["rooster", "NOU-C"],
+    input: ["rooster", "NOU-C(number=sg)"],
     expected: [
       {
         word: "rooster",
