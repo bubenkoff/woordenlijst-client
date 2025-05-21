@@ -4,7 +4,10 @@ import {
   getVerbExample as _getVerbExample,
   getVerbsWithPrepositions as _getVerbsWithPrepositions,
 } from "./wiki.js";
-import { getWord as _getWordDefinitions, getSynonym as _getWordSynonyms } from "./vanDale.js";
+import {
+  getWord as _getWordDefinitions,
+  getSynonym as _getWordSynonyms,
+} from "./vanDale.js";
 
 const findWordURL = "https://woordenlijst.org/MolexServe/lexicon/find_wordform";
 
@@ -147,10 +150,6 @@ const _parseWordForm = function (
       description: "onderschikkend voegwoord (conjunction subordinating).",
       example: "dat",
     },
-    "NOU-C(gender=n,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
     "INT(type=form)": {
       description: "vragend voornaamwoord (pronoun interrogative).",
       example: "wie",
@@ -174,16 +173,6 @@ const _parseWordForm = function (
     "ADP(type=pre/post)": {
       description: "voorzetsel (prepositie/postpositie).",
       example: "in",
-    },
-    "NOU-C(gender=m/f/n,number=sg)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk/onzijdig.",
-      example: "de appel",
-    },
-    "NOU-C(gender=m/f/n,number=pl)": {
-      description:
-        "zelfstandig naamwoord (substantief), meervoud, mannelijk/vrouwelijk/onzijdig.",
-      example: "de appels",
     },
     "NOU-P(gender=n,number=sg)": {
       description: "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
@@ -243,17 +232,9 @@ const _parseWordForm = function (
       description: "werkwoord (verbum).",
       example: "zijn",
     },
-    "NOU-C(gender=f,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
     "ADV(type=reg,wf=abbr)": {
       description: "bijwoord (adverbium), afkorting.",
       example: "snel",
-    },
-    "NOU-C(gender=m,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
     },
     "NOU-P(gender=f,number=sg)": {
       description:
@@ -424,11 +405,6 @@ const _parseWordForm = function (
       description: "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
       example: "de appels",
     },
-    "NOU-C(gender=m,number=sg,case=gen)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk, genitief.",
-      example: "des appel",
-    },
     "PD(type=refl,person=3,number=sg/pl)": {
       description:
         "wederkerend voornaamwoord (pronoun reciprocal), 3e persoon, enkelvoud/meervoud.",
@@ -491,10 +467,6 @@ const _parseWordForm = function (
         "persoonlijk voornaamwoord (pronoun personal), 2e persoon, meervoud.",
       example: "jullie",
     },
-    "NOU-C(number=pl,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
     "PD(type=refl,person=1,number=sg)": {
       description:
         "wederkerend voornaamwoord (pronoun reciprocal), 1e persoon, enkelvoud.",
@@ -509,10 +481,6 @@ const _parseWordForm = function (
       description:
         "bezittelijk voornaamwoord (pronoun possessive), 1e persoon, meervoud.",
       example: "ons",
-    },
-    "NOU-C(gender=m/f,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
     },
     "PD(type=poss,person=2,number=sg/pl)": {
       description:
@@ -821,6 +789,48 @@ const _parseWordForm = function (
       description: "scheidbaar werkwoord, aanvoegende wijs (coniunctivus).",
       example: "moge hij meewerken",
     },
+    "NOU-C(gender=n,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "onzijdig",
+    },
+    "NOU-C(gender=f,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "vrouwelijk",
+    },
+    "NOU-C(gender=m,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "mannelijk",
+    },
+    "NOU-C(gender=m/f/n,number=sg)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk/onzijdig.",
+      example: "de appel",
+      gender: "mannelijk/vrouwelijk/onzijdig",
+    },
+    "NOU-C(gender=m/f/n,number=pl)": {
+      description:
+        "zelfstandig naamwoord (substantief), meervoud, mannelijk/vrouwelijk/onzijdig.",
+      example: "de appels",
+      gender: "mannelijk/vrouwelijk/onzijdig",
+    },
+    "NOU-C(gender=m,number=sg,case=gen)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk, genitief.",
+      example: "des appel",
+      gender: "mannelijk",
+    },
+    "NOU-C(number=pl,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+    },
+    "NOU-C(gender=m/f,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "mannelijk/vrouwelijk",
+    },
     "NOU-C(number=sg)": {
       description: "zelfstandig naamwoord (substantief), enkelvoud.",
       example: "de mens",
@@ -914,9 +924,7 @@ const _parseWordForm = function (
       example: "hebben",
     },
   };
-  console.log(
-    `Parsing lemmata for word ${word} with ${JSON.stringify(jObj)}`
-  );
+  // console.log(`Parsing lemmata for word ${word} with ${JSON.stringify(jObj)}`);
   let lemmatas = jObj.root.found_lemmata;
   if (!Array.isArray(lemmatas)) {
     lemmatas = [lemmatas].filter(Boolean);
@@ -1083,7 +1091,7 @@ const _parseWordForm = function (
             : ["het"],
         }))
       : undefined;
-    // console.log(paradigms);
+    // console.log("partOfSpeechDefinition", partOfSpeechDefinition);
     return {
       word: lemmata.lemma,
       forms,

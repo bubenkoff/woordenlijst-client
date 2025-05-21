@@ -914,6 +914,39 @@ const testCases = [
     ],
   },
   {
+    input: ["topic", "NOU-C(number=sg)"],
+    expected: [
+      {
+        description:
+          "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk/onzijdig.",
+        forms: [
+          {
+            description:
+              "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk/onzijdig.",
+            example: "topic",
+            form: "topic",
+            partOfSpeech: "NOU-C(gender=m/f/n,number=sg)",
+            gender: "mannelijk/vrouwelijk/onzijdig",
+            articles: ["het", "de"],
+          },
+          {
+            description:
+              "zelfstandig naamwoord (substantief), meervoud, mannelijk/vrouwelijk/onzijdig.",
+            example: "topics",
+            form: "topics",
+            partOfSpeech: "NOU-C(gender=m/f/n,number=pl)",
+            gender: "mannelijk/vrouwelijk/onzijdig",
+            articles: ["de"],
+          },
+        ],
+        partOfSpeechType: "Zelfstandig naamwoord",
+        gender: "mannelijk/vrouwelijk/onzijdig",
+        articles: ["het", "de"],
+        word: "topic",
+      },
+    ],
+  },
+  {
     input: ["bos", "NOU-C(number=sg)"],
     expected: [
       {
