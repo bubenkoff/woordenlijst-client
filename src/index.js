@@ -50,92 +50,40 @@ const _parseWordForm = function (
   excludedPartsOfSpeech
 ) {
   const partOfSpeechDefinitions = {
-    "NOU-C": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk.",
-      example: "de appel",
-      simpleDescription: "Zelfstandig naamwoord",
-    },
-    "NOU-P": {
-      description: "zelfstandig naamwoord (substantief), meervoud.",
-      example: "de appels",
-      simpleDescription: "Zelfstandig naamwoord",
-    },
-    INT: {
-      description: "tussenwerpsel (interjection).",
-      example: "hela",
-      simpleDescription: "Tussenwerpsel",
-    },
-    NUM: {
-      description: "telwoord (numeral).",
-      example: "twee",
-      simpleDescription: "Telwoord",
-    },
-    AA: {
+    "AA": {
       description: "bijvoeglijk naamwoord (adjectivum).",
       example: "mooi",
       simpleDescription: "Bijvoeglijk naamwoord",
     },
-    ADV: {
-      description: "bijwoord (adverbium).",
-      example: "snel",
-      simpleDescription: "Bijwoord",
-    },
-    VRB: {
-      description: "werkwoord (verbum).",
-      example: "zijn",
-      simpleDescription: "Werkwoord",
-    },
-    NOU: {
-      description: "zelfstandig naamwoord (substantief).",
-      example: "de appel",
-      simpleDescription: "Zelfstandig naamwoord",
-    },
-    RES: {
-      description: "overig (residual).",
-      example: "etc.",
-      simpleDescription: "Overig",
-    },
-    CONJ: {
-      description: "voegwoord (conjunction).",
-      example: "en",
-      simpleDescription: "Voegwoord",
-    },
-    PD: {
-      description: "onbepaald voornaamwoord (pronoun indefinite).",
-      example: "niemand",
-      simpleDescription: "Onbepaald voornaamwoord",
-    },
-    ADP: {
-      description: "voorzetsel (prepositie).",
-      example: "in",
-      simpleDescription: "Voorzetsel",
-    },
-    "AA(degree=pos)": {
-      description: "bijvoeglijk naamwoord (adjectivum), positief.",
-      example: "mooi",
-    },
-    "AA(degree=pos,infl=e)": {
-      description:
-        "bijvoeglijk naamwoord (adjectivum), positief, eindigend op -e.",
-      example: "mooie",
-    },
-    "AA(degree=pos,case=gen)": {
-      description: "bijvoeglijk naamwoord (adjectivum), positief, genitief.",
-      example: "moois",
-    },
     "AA(degree=comp)": {
       description: "bijvoeglijk naamwoord (adjectivum), comparatief.",
       example: "mooier",
+    },
+    "AA(degree=comp,case=gen)": {
+      description: "bijvoeglijk naamwoord (adjectivum), comparatief, genitief.",
+      example: "mooiers",
     },
     "AA(degree=comp,infl=e)": {
       description:
         "bijvoeglijk naamwoord (adjectivum), comparatief, eindigend op -e.",
       example: "mooiere",
     },
-    "AA(degree=comp,case=gen)": {
-      description: "bijvoeglijk naamwoord (adjectivum), comparatief, genitief.",
-      example: "mooiers",
+    "AA(degree=pos)": {
+      description: "bijvoeglijk naamwoord (adjectivum), positief.",
+      example: "mooi",
+    },
+    "AA(degree=pos,case=gen)": {
+      description: "bijvoeglijk naamwoord (adjectivum), positief, genitief.",
+      example: "moois",
+    },
+    "AA(degree=pos,infl=e)": {
+      description:
+        "bijvoeglijk naamwoord (adjectivum), positief, eindigend op -e.",
+      example: "mooie",
+    },
+    "AA(degree=pos,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "mooi",
     },
     "AA(degree=sup)": {
       description: "bijvoeglijk naamwoord (adjectivum), superlatief.",
@@ -146,113 +94,506 @@ const _parseWordForm = function (
         "bijvoeglijk naamwoord (adjectivum), superlatief, eindigend op -e.",
       example: "mooiste",
     },
-    "CONJ(type=sub)": {
-      description: "onderschikkend voegwoord (conjunction subordinating).",
-      example: "dat",
+    "ADP": {
+      description: "voorzetsel (prepositie).",
+      example: "in",
+      simpleDescription: "Voorzetsel",
     },
-    "INT(type=form)": {
-      description: "vragend voornaamwoord (pronoun interrogative).",
-      example: "wie",
-    },
-    "NUM(type=card)": {
-      description: "telwoord (numeral cardinal).",
-      example: "twee",
-    },
-    "NUM(infl=en)": {
-      description: "telwoord (numeral), eindigend op -en.",
-      example: "tweeën",
-    },
-    "ADV(type=reg)": {
-      description: "bijwoord (adverbium).",
-      example: "snel",
+    "ADP(type=circ)": {
+      description: "circumpositie (circumposition).",
+      example: "in",
     },
     "ADP(type=pre)": {
       description: "voorzetsel (prepositie).",
       example: "in",
     },
+    "ADP(type=pre/circ)": {
+      description: "voorzetsel (prepositie/circumpositie).",
+      example: "in",
+    },
+    "ADP(type=pre/cmp)|CONJ": {
+      description: "voorzetsel (prepositie/comparatief) of voegwoord.",
+      example: "dan",
+    },
     "ADP(type=pre/post)": {
       description: "voorzetsel (prepositie/postpositie).",
       example: "in",
     },
-    "NOU-P(gender=n,number=sg)": {
-      description: "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
-      example: "het appel",
+    "ADP(type=pre/post/cmp)|CONJ": {
+      description: "voorzetsel (prepositie/postpositie/comparatief) of voegwoord.",
+      example: "dan",
     },
-    "PD(type=indef)": {
-      description: "onbepaald voornaamwoord (pronoun indefinite).",
-      example: "niemand",
+    "ADP(type=pre,wf=abbr)": {
+      description: "afkorting (afkorting), voorzetsel (prepositie).",
+      example: "in",
     },
-    "PD(case=nom,number=sg)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), nominatief, enkelvoud.",
-      example: "niemand",
+    "ADP|CONJ": {
+      description: "voorzetsel (prepositie) of voegwoord (conjunction).",
+      example: "en",
     },
-    "PD(case=dat,number=sg)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), datief, enkelvoud.",
-      example: "niemand",
+    "ADV": {
+      description: "bijwoord (adverbium).",
+      example: "snel",
+      simpleDescription: "Bijwoord",
     },
-    "PD(case=acc,number=sg)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), accusatief, enkelvoud.",
-      example: "niemand",
+    "ADV(type=pron)": {
+      description: "aanwijzend voornaamwoord (pronoun demonstrative).",
+      example: "dat",
     },
-    "PD(case=nom,number=pl)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), nominatief, meervoud.",
-      example: "niemanden",
+    "ADV(type=pron,sep=yes)": {
+      description: "scheidbaar bijwoord (adverbium).",
+      example: "eruit",
     },
-    "PD(case=dat,number=pl)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), datief, meervoud.",
-      example: "niemanden",
+    "ADV(type=reg)": {
+      description: "bijwoord (adverbium).",
+      example: "snel",
     },
-    "PD(case=acc,number=pl)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), accusatief, meervoud.",
-      example: "niemanden",
+    "ADV(type=reg,wf=abbr)": {
+      description: "bijwoord (adverbium), afkorting.",
+      example: "snel",
+    },
+    "CONJ": {
+      description: "voegwoord (conjunction).",
+      example: "en",
+      simpleDescription: "Voegwoord",
     },
     "CONJ(type=coor)": {
       description: "nevenschikkend voegwoord (conjunction coordinating).",
       example: "en",
     },
-    "NUM(infl=e)": {
-      description: "telwoord (numeral), eindigend op -e.",
-      example: "twee",
+    "CONJ(type=coor/sub)": {
+      description: "voegwoord (conjunction), nevenschikkend/onderschikkend.",
+      example: "en/dat",
     },
-    "RES(type=symb)": {
-      description: "symbool (symbol).",
-      example: "€",
+    "CONJ(type=coor,wf=abbr)": {
+      description: "afkorting (afkorting), nevenschikkend voegwoord.",
+      example: "en",
     },
-    "NOU-P(gender=m,number=sg)": {
-      description: "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+    "CONJ(type=sub)": {
+      description: "onderschikkend voegwoord (conjunction subordinating).",
+      example: "dat",
+    },
+    "INT": {
+      description: "tussenwerpsel (interjection).",
+      example: "hela",
+      simpleDescription: "Tussenwerpsel",
+    },
+    "INT(type=form)": {
+      description: "vragend voornaamwoord (pronoun interrogative).",
+      example: "wie",
+    },
+    "INT(type=form,wf=abbr)": {
+      description: "afkorting (afkorting), vragend voornaamwoord.",
+      example: "wie",
+    },
+    "NOU": {
+      description: "zelfstandig naamwoord (substantief).",
       example: "de appel",
+      simpleDescription: "Zelfstandig naamwoord",
     },
-    "VRB(type=mai/cop/aux)": {
-      description: "werkwoord (verbum).",
-      example: "zijn",
+    "NOU-C": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk.",
+      example: "de appel",
+      simpleDescription: "Zelfstandig naamwoord",
     },
-    "ADV(type=reg,wf=abbr)": {
-      description: "bijwoord (adverbium), afkorting.",
-      example: "snel",
+    "NOU-C(gender=f,number=pl)": {
+      description: "zelfstandig naamwoord (substantief), meervoud, vrouwelijk.",
+      example: "de gemeenschappen",
+      gender: "vrouwelijk",
+    },
+    "NOU-C(gender=f,number=sg)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, vrouwelijk.",
+      example: "de gemeenschap",
+      gender: "vrouwelijk",
+    },
+    "NOU-C(gender=f,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "vrouwelijk",
+    },
+    "NOU-C(gender=f/n,number=pl)": {
+      description:
+        "zelfstandig naamwoord (substantief), meervoud, vrouwelijk/onzijdig.",
+      example: "de meisjes",
+      gender: "vrouwelijk/onzijdig",
+    },
+    "NOU-C(gender=f/n,number=sg)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, vrouwelijk/onzijdig.",
+      example: "het meisje",
+      gender: "vrouwelijk/onzijdig",
+    },
+    "NOU-C(gender=m,number=pl)": {
+      description: "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
+      example: "de appels",
+      gender: "mannelijk",
+    },
+    "NOU-C(gender=m,number=sg)": {
+      description: "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+      example: "de bos",
+      gender: "mannelijk",
+    },
+    "NOU-C(gender=m,number=sg,case=gen)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk, genitief.",
+      example: "des appel",
+      gender: "mannelijk",
+    },
+    "NOU-C(gender=m,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "mannelijk",
+    },
+    "NOU-C(gender=m/f,number=pl)": {
+      description:
+        "zelfstandig naamwoord (substantief), meervoud, mannelijk/vrouwelijk.",
+      example: "de vruchten",
+      gender: "mannelijk/vrouwelijk",
+    },
+    "NOU-C(gender=m/f,number=sg)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk.",
+      example: "de vrucht",
+      gender: "mannelijk/vrouwelijk",
+    },
+    "NOU-C(gender=m/f,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "mannelijk/vrouwelijk",
+    },
+    "NOU-C(gender=m/f/n,number=pl)": {
+      description:
+        "zelfstandig naamwoord (substantief), meervoud, mannelijk/vrouwelijk/onzijdig.",
+      example: "de appels",
+      gender: "mannelijk/vrouwelijk/onzijdig",
+    },
+    "NOU-C(gender=m/f/n,number=sg)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk/onzijdig.",
+      example: "de appel",
+      gender: "mannelijk/vrouwelijk/onzijdig",
+    },
+    "NOU-C(gender=m/n,number=pl)": {
+      description:
+        "zelfstandig naamwoord (substantief), meervoud, mannelijk/onzijdig.",
+      example: "de knoflookken",
+      gender: "mannelijk/onzijdig",
+    },
+    "NOU-C(gender=m/n,number=sg)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/onzijdig.",
+      example: "het knoflook",
+      gender: "mannelijk/onzijdig",
+    },
+    "NOU-C(gender=n,number=pl)": {
+      description: "zelfstandig naamwoord (substantief), meervoud, onzijdig.",
+      example: "de gelukken",
+      gender: "onzijdig",
+    },
+    "NOU-C(gender=n,number=sg)": {
+      description: "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+      example: "het geluk",
+      gender: "onzijdig",
+    },
+    "NOU-C(gender=n,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+      gender: "onzijdig",
+    },
+    "NOU-C(number=pl)": {
+      description: "zelfstandig naamwoord (substantief), meervoud.",
+      example: "de mensen",
+    },
+    "NOU-C(number=pl,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+    },
+    "NOU-C(number=sg)": {
+      description: "zelfstandig naamwoord (substantief), enkelvoud.",
+      example: "de mens",
+    },
+    "NOU-P": {
+      description: "zelfstandig naamwoord (substantief), meervoud.",
+      example: "de appels",
+      simpleDescription: "Zelfstandig naamwoord",
     },
     "NOU-P(gender=f,number=sg)": {
       description:
         "zelfstandig naamwoord (substantief), enkelvoud, vrouwelijk.",
       example: "de appel",
     },
-    "ADV(type=pron,sep=yes)": {
-      description: "scheidbaar bijwoord (adverbium).",
-      example: "eruit",
+    "NOU-P(gender=f,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+    },
+    "NOU-P(gender=m,number=pl)": {
+      description: "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
+      example: "de appels",
+    },
+    "NOU-P(gender=m,number=sg)": {
+      description: "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
+      example: "de appel",
+    },
+    "NOU-P(gender=m,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+    },
+    "NOU-P(gender=m/f,number=sg)": {
+      description:
+        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk.",
+      example: "de appel",
+    },
+    "NOU-P(gender=m/f,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+    },
+    "NOU-P(gender=n,number=sg)": {
+      description: "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
+      example: "het appel",
+    },
+    "NOU-P(gender=n,number=sg,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+    },
+    "NOU-P(number=pl)": {
+      description: "zelfstandig naamwoord (substantief), meervoud.",
+      example: "de appels",
+    },
+    "NOU-P(number=pl,wf=abbr)": {
+      description: "afkorting (afkorting).",
+      example: "uur",
+    },
+    "NUM": {
+      description: "telwoord (numeral).",
+      example: "twee",
+      simpleDescription: "Telwoord",
+    },
+    "NUM(case=dat)": {
+      description: "telwoord (numeral), datief.",
+      example: "twee",
+    },
+    "NUM(infl=e)": {
+      description: "telwoord (numeral), eindigend op -e.",
+      example: "twee",
+    },
+    "NUM(infl=en)": {
+      description: "telwoord (numeral), eindigend op -en.",
+      example: "tweeën",
+    },
+    "NUM(type=card)": {
+      description: "telwoord (numeral cardinal).",
+      example: "twee",
+    },
+    "NUM(type=ord)": {
+      description: "rangtelwoord (numeral ordinal).",
+      example: "tweede",
+    },
+    "PD": {
+      description: "onbepaald voornaamwoord (pronoun indefinite).",
+      example: "niemand",
+      simpleDescription: "Onbepaald voornaamwoord",
+    },
+    "PD(case=acc,number=pl)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), accusatief, meervoud.",
+      example: "niemanden",
+    },
+    "PD(case=acc,number=sg)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), accusatief, enkelvoud.",
+      example: "niemand",
+    },
+    "PD(case=acc,infl=e)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), accusatief, eindigend op -e.",
+      example: "niemand",
+    },
+    "PD(case=dat,number=pl)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), datief, meervoud.",
+      example: "niemanden",
+    },
+    "PD(case=dat,number=sg)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), datief, enkelvoud.",
+      example: "niemand",
+    },
+    "PD(case=dat,infl=e)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), datief, eindigend op -e.",
+      example: "niemand",
+    },
+    "PD(case=gen)": {
+      description: "onbepaald voornaamwoord (pronoun indefinite), genitief.",
+      example: "niemands",
+    },
+    "PD(case=gen,number=pl)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), genitief, meervoud.",
+      example: "niemands",
+    },
+    "PD(case=nom,number=pl)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), nominatief, meervoud.",
+      example: "niemanden",
+    },
+    "PD(case=nom,number=sg)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), nominatief, enkelvoud.",
+      example: "niemand",
+    },
+    "PD(case=nom,infl=e)": {
+      description:
+        "onbepaald voornaamwoord (pronoun indefinite), nominatief, eindigend op -e.",
+      example: "niemand",
+    },
+    "PD(case=nom)": {
+      description: "onbepaald voornaamwoord (pronoun indefinite), nominatief.",
+      example: "niemand",
     },
     "PD(type=dem)": {
       description: "aanwijzend voornaamwoord (pronoun demonstrative).",
       example: "dat",
     },
-    "PD(case=nom,number=sg,infl=e)": {
+    "PD(type=dem,subtype=art)": {
+      description: "aanwijzend voornaamwoord (pronoun demonstrative), artikel.",
+      example: "die",
+    },
+    "PD(type=excl)": {
+      description: "aanwijzend voornaamwoord (pronoun demonstrative).",
+      example: "dat",
+    },
+    "PD(type=indef)": {
+      description: "onbepaald voornaamwoord (pronoun indefinite).",
+      example: "niemand",
+    },
+    "PD(type=indef,subtype=art)": {
+      description: "onbepaald voornaamwoord (pronoun indefinite), artikel.",
+      example: "een",
+    },
+    "PD(type=inter)": {
+      description: "aanwijzend voornaamwoord (pronoun demonstrative).",
+      example: "dat",
+    },
+    "PD(type=pers,gender=f,person=3,number=sg)": {
       description:
-        "aanwijzend voornaamwoord (pronoun demonstrative), nominatief, enkelvoud, eindigend op -e.",
-      example: "deze",
+        "persoonlijk voornaamwoord (pronoun personal), vrouwelijk, 3e persoon, enkelvoud.",
+      example: "zij",
+    },
+    "PD(type=pers,gender=m,person=3,number=sg)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), mannelijk, 3e persoon, enkelvoud.",
+      example: "hij",
+    },
+    "PD(type=pers,gender=m/f,person=3,number=sg)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), mannelijk/vrouwelijk, 3e persoon, enkelvoud.",
+      example: "hij/zij/het",
+    },
+    "PD(type=pers,gender=n,person=3,number=sg)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), onzijdig, 3e persoon, enkelvoud.",
+      example: "het",
+    },
+    "PD(type=pers,person=1,number=pl)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), 1e persoon, meervoud.",
+      example: "wij",
+    },
+    "PD(type=pers,person=1,number=sg)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), 1e persoon, enkelvoud.",
+      example: "ik",
+    },
+    "PD(type=pers,person=2,number=pl)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), 2e persoon, meervoud.",
+      example: "jullie",
+    },
+    "PD(type=pers,person=2,number=sg)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), 2e persoon, enkelvoud.",
+      example: "jij",
+    },
+    "PD(type=pers,person=2,number=sg/pl)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), 2e persoon, enkelvoud/meervoud.",
+      example: "jij/jullie",
+    },
+    "PD(type=pers,person=3,number=pl)": {
+      description:
+        "persoonlijk voornaamwoord (pronoun personal), 3e persoon, meervoud.",
+      example: "zij",
+    },
+    "PD(type=poss,gender=m/n,person=3,number=sg)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), mannelijk/onzijdig, 3e persoon, enkelvoud.",
+      example: "zijn",
+    },
+    "PD(type=poss,gender=f,person=3,number=sg)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), vrouwelijk, 3e persoon, enkelvoud.",
+      example: "haar",
+    },
+    "PD(type=poss,person=1,number=pl)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), 1e persoon, meervoud.",
+      example: "ons",
+    },
+    "PD(type=poss,person=1,number=sg)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), 1e persoon, enkelvoud.",
+      example: "mijn",
+    },
+    "PD(type=poss,person=2,number=pl)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), 2e persoon, meervoud.",
+      example: "jullie",
+    },
+    "PD(type=poss,person=2,number=sg)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), 2e persoon, enkelvoud.",
+      example: "jouw",
+    },
+    "PD(type=poss,person=2,number=sg/pl)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), 2e persoon, enkelvoud/meervoud.",
+      example: "je/jullie",
+    },
+    "PD(type=poss,person=3,number=pl)": {
+      description:
+        "bezittelijk voornaamwoord (pronoun possessive), 3e persoon, meervoud.",
+      example: "hun",
+    },
+    "PD(type=recip)": {
+      description: "wederkerend voornaamwoord (pronoun reciprocal).",
+      example: "elkaar",
+    },
+    "PD(type=refl,person=1,number=pl)": {
+      description:
+        "wederkerend voornaamwoord (pronoun reflexive), 1e persoon, meervoud.",
+      example: "ons",
+    },
+    "PD(type=refl,person=1,number=sg)": {
+      description:
+        "wederkerend voornaamwoord (pronoun reciprocal), 1e persoon, enkelvoud.",
+      example: "me",
+    },
+    "PD(type=refl,person=2,number=sg/pl)": {
+      description:
+        "wederkerend voornaamwoord (pronoun reciprocal), 2e persoon, enkelvoud/meervoud.",
+      example: "je/jullie",
+    },
+    "PD(type=refl,person=3,number=sg/pl)": {
+      description:
+        "wederkerend voornaamwoord (pronoun reciprocal), 3e persoon, enkelvoud/meervoud.",
+      example: "zich",
+    },
+    "PD(type=rel)": {
+      description: "betrekkelijk voornaamwoord (pronoun relative).",
+      example: "die",
     },
     "PD(case=gen,number=sg)": {
       description:
@@ -269,329 +610,79 @@ const _parseWordForm = function (
         "aanwijzend voornaamwoord (pronoun demonstrative), accusatief, enkelvoud, eindigend op -e.",
       example: "deze",
     },
-    "NUM(type=ord)": {
-      description: "rangtelwoord (numeral ordinal).",
-      example: "tweede",
-    },
-    "ADP(type=pre/circ)": {
-      description: "voorzetsel (prepositie/circumpositie).",
-      example: "in",
-    },
-    "ADP(type=circ)": {
-      description: "circumpositie (circumposition).",
-      example: "in",
-    },
-    "PD(type=indef,subtype=art)": {
-      description: "onbepaald voornaamwoord (pronoun indefinite), artikel.",
-      example: "een",
-    },
-    "PD(case=nom)": {
-      description: "onbepaald voornaamwoord (pronoun indefinite), nominatief.",
-      example: "niemand",
-    },
-    "PD(case=nom,infl=e)": {
+    "PD(case=nom,number=sg,infl=e)": {
       description:
-        "onbepaald voornaamwoord (pronoun indefinite), nominatief, eindigend op -e.",
-      example: "niemand",
+        "aanwijzend voornaamwoord (pronoun demonstrative), nominatief, enkelvoud, eindigend op -e.",
+      example: "deze",
     },
-    "PD(case=dat)": {
-      description: "onbepaald voornaamwoord (pronoun indefinite), datief.",
-      example: "niemand",
+    "RES": {
+      description: "overig (residual).",
+      example: "etc.",
+      simpleDescription: "Overig",
     },
-    "PD(case=dat,infl=e)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), datief, eindigend op -e.",
-      example: "niemand",
+    "RES(type=oth,wf=abbr)": {
+      description: "afkorting (afkorting), overig.",
+      example: "etc.",
     },
-    "PD(case=acc)": {
-      description: "onbepaald voornaamwoord (pronoun indefinite), accusatief.",
-      example: "niemand",
+    "RES(type=symb)": {
+      description: "symbool (symbol).",
+      example: "€",
     },
-    "PD(case=acc,infl=e)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), accusatief, eindigend op -e.",
-      example: "niemand",
-    },
-    "NOU-P(gender=f,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
-    "NOU-P(gender=n,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
-    "PD(type=rel)": {
-      description: "betrekkelijk voornaamwoord (pronoun relative).",
-      example: "die",
-    },
-    "PD(type=pers,gender=m,person=3,number=sg)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), mannelijk, 3e persoon, enkelvoud.",
-      example: "hij",
-    },
-    "PD(type=pers,person=1,number=sg)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), 1e persoon, enkelvoud.",
-      example: "ik",
-    },
-    "PD(type=pers,person=2,number=sg)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), 2e persoon, enkelvoud.",
-      example: "jij",
-    },
-    "PD(type=recip)": {
-      description: "wederkerend voornaamwoord (pronoun reciprocal).",
-      example: "elkaar",
-    },
-    "PD(case=gen)": {
-      description: "onbepaald voornaamwoord (pronoun indefinite), genitief.",
-      example: "niemands",
-    },
-    "PD(type=pers,gender=m/f,person=3,number=sg)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), mannelijk/vrouwelijk, 3e persoon, enkelvoud.",
-      example: "hij/zij/het",
-    },
-    "PD(type=refl,person=1,number=pl)": {
-      description:
-        "wederkerend voornaamwoord (pronoun reflexive), 1e persoon, meervoud.",
-      example: "ons",
-    },
-    "PD(type=pers,person=1,number=pl)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), 1e persoon, meervoud.",
-      example: "wij",
-    },
-    "AA(degree=pos,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "mooi",
-    },
-    "NOU-P(gender=m/f,number=sg)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk.",
-      example: "de appel",
-    },
-    "NOU-P(gender=m/f,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
-    "PD(type=refl,person=2,number=sg/pl)": {
-      description:
-        "wederkerend voornaamwoord (pronoun reciprocal), 2e persoon, enkelvoud/meervoud.",
-      example: "je/jullie",
-    },
-    "PD(type=pers,person=2,number=sg/pl)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), 2e persoon, enkelvoud/meervoud.",
-      example: "jij/jullie",
-    },
-    "ADV(type=pron)": {
-      description: "aanwijzend voornaamwoord (pronoun demonstrative).",
-      example: "dat",
-    },
-    "NOU-P(number=pl,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
-    "VRB(type=mai/cop/aux,sep=yes)": {
-      description: "scheidbaar werkwoord (verbum).",
-      example: "opnemen",
-    },
-    "NOU-P(number=pl)": {
-      description: "zelfstandig naamwoord (substantief), meervoud.",
-      example: "de appels",
-    },
-    "NOU-P(gender=m,number=pl)": {
-      description: "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
-      example: "de appels",
-    },
-    "PD(type=refl,person=3,number=sg/pl)": {
-      description:
-        "wederkerend voornaamwoord (pronoun reciprocal), 3e persoon, enkelvoud/meervoud.",
-      example: "zich",
-    },
-    "NUM(case=dat)": {
-      description: "telwoord (numeral), datief.",
-      example: "twee",
-    },
-    "PD(case=gen,number=pl)": {
-      description:
-        "onbepaald voornaamwoord (pronoun indefinite), genitief, meervoud.",
-      example: "niemands",
-    },
-    "CONJ(type=coor/sub)": {
-      description: "voegwoord (conjunction), nevenschikkend/onderschikkend.",
-      example: "en/dat",
-    },
-    "PD(type=dem,subtype=art)": {
-      description: "aanwijzend voornaamwoord (pronoun demonstrative), artikel.",
-      example: "die",
-    },
-    "PD(type=poss,gender=f,person=3,number=sg)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), vrouwelijk, 3e persoon, enkelvoud.",
-      example: "haar",
-    },
-    "PD(type=pers,gender=f,person=3,number=sg)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), vrouwelijk, 3e persoon, enkelvoud.",
-      example: "zij",
-    },
-    "PD(type=pers,person=3,number=pl)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), 3e persoon, meervoud.",
-      example: "zij",
-    },
-    "PD(type=pers,gender=n,person=3,number=sg)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), onzijdig, 3e persoon, enkelvoud.",
-      example: "het",
-    },
-    "PD(type=poss,person=3,number=pl)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), 3e persoon, meervoud.",
-      example: "hun",
-    },
-    "PD(type=poss,person=2,number=sg)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), 2e persoon, enkelvoud.",
-      example: "jouw",
-    },
-    "PD(type=poss,person=2,number=pl)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), 2e persoon, meervoud.",
-      example: "jullie",
-    },
-    "PD(type=pers,person=2,number=pl)": {
-      description:
-        "persoonlijk voornaamwoord (pronoun personal), 2e persoon, meervoud.",
-      example: "jullie",
-    },
-    "PD(type=refl,person=1,number=sg)": {
-      description:
-        "wederkerend voornaamwoord (pronoun reciprocal), 1e persoon, enkelvoud.",
-      example: "me",
-    },
-    "PD(type=poss,person=1,number=sg)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), 1e persoon, enkelvoud.",
-      example: "mijn",
-    },
-    "PD(type=poss,person=1,number=pl)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), 1e persoon, meervoud.",
-      example: "ons",
-    },
-    "PD(type=poss,person=2,number=sg/pl)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), 2e persoon, enkelvoud/meervoud.",
-      example: "je/jullie",
-    },
-    "PD(type=inter)": {
-      description: "aanwijzend voornaamwoord (pronoun demonstrative).",
-      example: "dat",
-    },
-    "PD(type=excl)": {
-      description: "aanwijzend voornaamwoord (pronoun demonstrative).",
-      example: "dat",
-    },
-    "PD(type=poss,gender=m/n,person=3,number=sg)": {
-      description:
-        "bezittelijk voornaamwoord (pronoun possessive), mannelijk/onzijdig, 3e persoon, enkelvoud.",
+    "VRB": {
+      description: "werkwoord (verbum).",
       example: "zijn",
+      simpleDescription: "Werkwoord",
+    },
+    "VRB(finiteness=fin,mood=conj)": {
+      description: "aanvoegende wijs (coniunctivus). (moge ...)",
+      example: "moge hij werken",
+    },
+    "VRB(finiteness=fin,mood=conj,sep=yes)": {
+      description: "scheidbaar werkwoord, aanvoegende wijs (coniunctivus).",
+      example: "moge hij meewerken",
     },
     "VRB(finiteness=fin,mood=conj,tense=past)": {
       description:
         "aanvoegende wijs (conjunctivus), verleden tijd (imperfectum).",
       example: "werkte",
     },
-    "VRB(finiteness=fin,mood=ind,tense=past,NA=sg,PA=2,usage=u)": {
-      description:
-        "verleden tijd (imperfectum), enkelvoud, 2e persoon bevestigend u.",
-      example: "u werkte",
-    },
-    "VRB(finiteness=inf)": {
-      description: "infinitief (infinitivus).",
-      example: "werken",
-      reflexive: {
-        prefix: "(zich)",
-      },
-    },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)": {
-      description: "tegenwoordige tijd (presens), enkelvoud, 1e persoon.",
-      example: "ik werk",
-      prefix: "ik",
-      reflexive: {
-        preSuffix: "(me)",
-        separable: {
-          prefix: "dat ik (me)",
-          preSuffix: undefined,
-        },
-      },
-      separable: {
-        prefix: "dat ik",
-      },
-    },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)": {
-      description: "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag.",
-      example: "werk je?",
-      preSuffix: "jij",
-      suffix: "?",
-      reflexive: {
-        preSuffix: "jij (je)",
-        suffix: "?",
-      },
-    },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=as)": {
-      description:
-        "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend.",
-      example: "jij werkt",
-      prefix: "jij",
+    "VRB(finiteness=fin,mood=imp)": {
+      description: "gebiedende wijs (imperatief).",
+      example: "werk!",
+      suffix: "!",
       reflexive: {
         preSuffix: "(je)",
-        separable: {
-          prefix: "dat jij (je)",
-          preSuffix: undefined,
-        },
-      },
-      separable: {
-        prefix: "dat jij",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,usage=u)": {
-      description:
-        "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u.",
-      example: "u werkt",
-      prefix: "u",
+    "VRB(finiteness=fin,mood=imp,sep=yes)": {
+      description: "scheidbaar werkwoord, gebiedende wijs (imperatief).",
+      example: "werk mee!",
+      suffix: "!",
       reflexive: {
-        preSuffix: "(zich)",
-        separable: {
-          prefix: "dat u (zich)",
-          preSuffix: undefined,
-        },
-      },
-      separable: {
-        prefix: "dat u",
+        preSuffix: "(je)",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=3)": {
-      description: "tegenwoordige tijd (presens), enkelvoud, 3e persoon.",
-      example: "hij werkt",
-      prefix: "hij/zij/het",
+    "VRB(finiteness=fin,mood=imp,usage=u)": {
+      description: "gebiedende wijs (imperatief) u.",
+      example: "werkt u!",
+      preSuffix: "u",
+      suffix: "!",
       reflexive: {
-        preSuffix: "(zich)",
-        separable: {
-          prefix: "dat hij/zij/het (zich)",
-          preSuffix: undefined,
-        },
-      },
-      separable: {
-        prefix: "dat hij/zij/het",
+        preSuffix: "u (zich)",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=1)": {
-      description: "tegenwoordige tijd (presens), meervoud, 1e persoon.",
-      example: "wij werken",
+    "VRB(finiteness=fin,mood=imp,usage=u,sep=yes)": {
+      description: "scheidbaar werkwoord, gebiedende wijs (imperatief) u.",
+      example: "werkt u mee!",
+      preSuffix: "u",
+      suffix: "!",
+      reflexive: {
+        preSuffix: "u (zich)",
+      },
+    },
+    "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=1)": {
+      description: "verleden tijd (imperfectum), meervoud, 1e persoon.",
+      example: "wij werkten",
       prefix: "wij",
       reflexive: {
         preSuffix: "(ons)",
@@ -604,9 +695,9 @@ const _parseWordForm = function (
         prefix: "dat wij",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=2)": {
-      description: "tegenwoordige tijd (presens), meervoud, 2e persoon.",
-      example: "jullie werken",
+    "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=2)": {
+      description: "verleden tijd (imperfectum), meervoud, 2e persoon.",
+      example: "jullie werkten",
       prefix: "jullie",
       reflexive: {
         preSuffix: "(je)",
@@ -619,9 +710,9 @@ const _parseWordForm = function (
         prefix: "dat jullie",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=3)": {
-      description: "tegenwoordige tijd (presens), meervoud, 3e persoon.",
-      example: "zij werken",
+    "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=3)": {
+      description: "verleden tijd (imperfectum), meervoud, 3e persoon.",
+      example: "zij werkten",
       prefix: "zij",
       reflexive: {
         preSuffix: "(zich)",
@@ -679,9 +770,9 @@ const _parseWordForm = function (
         prefix: "dat hij/zij/het",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=1)": {
-      description: "verleden tijd (imperfectum), meervoud, 1e persoon.",
-      example: "wij werkten",
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=1)": {
+      description: "tegenwoordige tijd (presens), meervoud, 1e persoon.",
+      example: "wij werken",
       prefix: "wij",
       reflexive: {
         preSuffix: "(ons)",
@@ -694,9 +785,9 @@ const _parseWordForm = function (
         prefix: "dat wij",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=2)": {
-      description: "verleden tijd (imperfectum), meervoud, 2e persoon.",
-      example: "jullie werkten",
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=2)": {
+      description: "tegenwoordige tijd (presens), meervoud, 2e persoon.",
+      example: "jullie werken",
       prefix: "jullie",
       reflexive: {
         preSuffix: "(je)",
@@ -709,9 +800,9 @@ const _parseWordForm = function (
         prefix: "dat jullie",
       },
     },
-    "VRB(finiteness=fin,mood=ind,tense=past,NA=pl,PA=3)": {
-      description: "verleden tijd (imperfectum), meervoud, 3e persoon.",
-      example: "zij werkten",
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=pl,PA=3)": {
+      description: "tegenwoordige tijd (presens), meervoud, 3e persoon.",
+      example: "zij werken",
       prefix: "zij",
       reflexive: {
         preSuffix: "(zich)",
@@ -722,6 +813,108 @@ const _parseWordForm = function (
       },
       separable: {
         prefix: "dat zij",
+      },
+    },
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=1)": {
+      description: "tegenwoordige tijd (presens), enkelvoud, 1e persoon.",
+      example: "ik werk",
+      prefix: "ik",
+      reflexive: {
+        preSuffix: "(me)",
+        separable: {
+          prefix: "dat ik (me)",
+          preSuffix: undefined,
+        },
+      },
+      separable: {
+        prefix: "dat ik",
+      },
+    },
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=as)": {
+      description:
+        "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend.",
+      example: "jij werkt",
+      prefix: "jij",
+      reflexive: {
+        preSuffix: "(je)",
+        separable: {
+          prefix: "dat jij (je)",
+          preSuffix: undefined,
+        },
+      },
+      separable: {
+        prefix: "dat jij",
+      },
+    },
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,position=bs)": {
+      description: "tegenwoordige tijd (presens), enkelvoud, 2e persoon vraag.",
+      example: "werk je?",
+      preSuffix: "jij",
+      suffix: "?",
+      reflexive: {
+        preSuffix: "jij (je)",
+        suffix: "?",
+      },
+    },
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2,usage=u)": {
+      description:
+        "tegenwoordige tijd (presens), enkelvoud, 2e persoon bevestigend u.",
+      example: "u werkt",
+      prefix: "u",
+      reflexive: {
+        preSuffix: "(zich)",
+        separable: {
+          prefix: "dat u (zich)",
+          preSuffix: undefined,
+        },
+      },
+      separable: {
+        prefix: "dat u",
+      },
+    },
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=2)": {
+      description: "tegenwoordige tijd (presens), enkelvoud, 2e persoon.",
+      example: "jij werkt",
+      prefix: "jij",
+      reflexive: {
+        preSuffix: "(je)",
+        separable: {
+          prefix: "dat jij (je)",
+          preSuffix: undefined,
+        },
+      },
+      separable: {
+        prefix: "dat jij",
+      },
+    },
+    "VRB(finiteness=fin,mood=ind,tense=pres,NA=sg,PA=3)": {
+      description: "tegenwoordige tijd (presens), enkelvoud, 3e persoon.",
+      example: "hij werkt",
+      prefix: "hij/zij/het",
+      reflexive: {
+        preSuffix: "(zich)",
+        separable: {
+          prefix: "dat hij/zij/het (zich)",
+          preSuffix: undefined,
+        },
+      },
+      separable: {
+        prefix: "dat hij/zij/het",
+      },
+    },
+    "VRB(finiteness=inf)": {
+      description: "infinitief (infinitivus).",
+      example: "werken",
+      reflexive: {
+        prefix: "(zich)",
+      },
+    },
+    "VRB(finiteness=part,tense=past)": {
+      description: "voltooid deelwoord (participium perfecti passivi).",
+      example: "gewerkt",
+      useHelpVerb: true,
+      reflexive: {
+        prefix: "(zich)",
       },
     },
     "VRB(finiteness=part,tense=pres)": {
@@ -739,181 +932,17 @@ const _parseWordForm = function (
         prefix: "(zich)",
       },
     },
-    "VRB(finiteness=part,tense=past)": {
-      description: "voltooid deelwoord (participium perfecti passivi).",
-      example: "gewerkt",
-      useHelpVerb: true,
-      reflexive: {
-        prefix: "(zich)",
-      },
-    },
-    "VRB(finiteness=fin,mood=imp)": {
-      description: "gebiedende wijs (imperatief).",
-      example: "werk!",
-      suffix: "!",
-      reflexive: {
-        preSuffix: "(je)",
-      },
-    },
-    "VRB(finiteness=fin,mood=imp,usage=u)": {
-      description: "gebiedende wijs (imperatief) u.",
-      example: "werkt u!",
-      preSuffix: "u",
-      suffix: "!",
-      reflexive: {
-        preSuffix: "u (zich)",
-      },
-    },
-    "VRB(finiteness=fin,mood=conj)": {
-      description: "aanvoegende wijs (coniunctivus). (moge ...)",
-      example: "moge hij werken",
-    },
-    "VRB(finiteness=fin,mood=imp,sep=yes)": {
-      description: "scheidbaar werkwoord, gebiedende wijs (imperatief).",
-      example: "werk mee!",
-      suffix: "!",
-      reflexive: {
-        preSuffix: "(je)",
-      },
-    },
-    "VRB(finiteness=fin,mood=imp,usage=u,sep=yes)": {
-      description: "scheidbaar werkwoord, gebiedende wijs (imperatief) u.",
-      example: "werkt u mee!",
-      preSuffix: "u",
-      suffix: "!",
-      reflexive: {
-        preSuffix: "u (zich)",
-      },
-    },
-    "VRB(finiteness=fin,mood=conj,sep=yes)": {
-      description: "scheidbaar werkwoord, aanvoegende wijs (coniunctivus).",
-      example: "moge hij meewerken",
-    },
-    "NOU-C(gender=n,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-      gender: "onzijdig",
-    },
-    "NOU-C(gender=f,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-      gender: "vrouwelijk",
-    },
-    "NOU-C(gender=m,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-      gender: "mannelijk",
-    },
-    "NOU-C(gender=m/f/n,number=sg)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk/onzijdig.",
-      example: "de appel",
-      gender: "mannelijk/vrouwelijk/onzijdig",
-    },
-    "NOU-C(gender=m/f/n,number=pl)": {
-      description:
-        "zelfstandig naamwoord (substantief), meervoud, mannelijk/vrouwelijk/onzijdig.",
-      example: "de appels",
-      gender: "mannelijk/vrouwelijk/onzijdig",
-    },
-    "NOU-C(gender=m,number=sg,case=gen)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk, genitief.",
-      example: "des appel",
-      gender: "mannelijk",
-    },
-    "NOU-C(number=pl,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-    },
-    "NOU-C(gender=m/f,number=sg,wf=abbr)": {
-      description: "afkorting (afkorting).",
-      example: "uur",
-      gender: "mannelijk/vrouwelijk",
-    },
-    "NOU-C(number=sg)": {
-      description: "zelfstandig naamwoord (substantief), enkelvoud.",
-      example: "de mens",
-    },
-    "NOU-C(number=pl)": {
-      description: "zelfstandig naamwoord (substantief), meervoud.",
-      example: "de mensen",
-    },
-    "NOU-C(gender=n,number=sg)": {
-      description: "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
-      example: "het mens",
-      gender: "onzijdig",
-    },
-    "NOU-C(gender=m,number=sg)": {
-      description: "zelfstandig naamwoord (substantief), enkelvoud, mannelijk.",
-      example: "de bos",
-      gender: "mannelijk",
-    },
-    "NOU-C(gender=m/f,number=sg)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/vrouwelijk.",
-      example: "de vrucht",
-      gender: "mannelijk/vrouwelijk",
-    },
-    "NOU-C(gender=m/n,number=sg)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, mannelijk/onzijdig.",
-      example: "het knoflook",
-      gender: "mannelijk/onzijdig",
-    },
-    "NOU-C(gender=f/n,number=sg)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, vrouwelijk/onzijdig.",
-      example: "het meisje",
-      gender: "vrouwelijk/onzijdig",
-    },
-    "NOU-C(gender=f,number=sg)": {
-      description:
-        "zelfstandig naamwoord (substantief), enkelvoud, vrouwelijk.",
-      example: "de gemeenschap",
-      gender: "vrouwelijk",
-    },
-    "NOU-C(gender=n,number=sg)": {
-      description: "zelfstandig naamwoord (substantief), enkelvoud, onzijdig.",
-      example: "het geluk",
-      gender: "onzijdig",
-    },
-    "NOU-C(gender=n,number=pl)": {
-      description: "zelfstandig naamwoord (substantief), meervoud, onzijdig.",
-      example: "de gelukken",
-      gender: "onzijdig",
-    },
-    "NOU-C(gender=m/f,number=pl)": {
-      description:
-        "zelfstandig naamwoord (substantief), meervoud, mannelijk/vrouwelijk.",
-      example: "de vruchten",
-      gender: "mannelijk/vrouwelijk",
-    },
-    "NOU-C(gender=m/n,number=pl)": {
-      description:
-        "zelfstandig naamwoord (substantief), meervoud, mannelijk/onzijdig.",
-      example: "de knoflookken",
-      gender: "mannelijk/onzijdig",
-    },
-    "NOU-C(gender=f/n,number=pl)": {
-      description:
-        "zelfstandig naamwoord (substantief), meervoud, vrouwelijk/onzijdig.",
-      example: "de meisjes",
-      gender: "vrouwelijk/onzijdig",
-    },
-    "NOU-C(gender=m,number=pl)": {
-      description: "zelfstandig naamwoord (substantief), meervoud, mannelijk.",
-      example: "de appels",
-      gender: "mannelijk",
-    },
-    "NOU-C(gender=f,number=pl)": {
-      description: "zelfstandig naamwoord (substantief), meervoud, vrouwelijk.",
-      example: "de gemeenschappen",
-      gender: "vrouwelijk",
-    },
     "VRB(type=mai)": {
       description: "hoofdwerkwoord (infinitivus).",
       example: "werken",
+    },
+    "VRB(type=mai/cop/aux)": {
+      description: "werkwoord (verbum).",
+      example: "zijn",
+    },
+    "VRB(type=mai/aux)": {
+      description: "hulpwerkwoord (auxilium).",
+      example: "hebben",
     },
     "VRB(type=mai,sep=yes)": {
       description: "scheidbaar werkwoord (tmesis).",
@@ -922,6 +951,10 @@ const _parseWordForm = function (
     "VRB(type=mai/aux)": {
       description: "hulpwerkwoord (auxilium).",
       example: "hebben",
+    },
+    "VRB(type=mai,sep=yes)": {
+      description: "scheidbaar werkwoord (tmesis).",
+      example: "meehelpen",
     },
   };
   // console.log(`Parsing lemmata for word ${word} with ${JSON.stringify(jObj)}`);
